@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="gameArea">
+        <div class="cardsArea">
+            <div class="dealerSection">
+            <h1>Dealer</h1>
+            <div class="Cards">
+                <div class="card">
+                    <h3 id="dealerCard1">dealerCard 1</h3>
+                </div>
+                <div class="card">
+                    <h3 id="dealerCard2">dealerCard 2</h3>
+                </div>
+                <div class="card">
+                    <h3 id="dealerCard3">dealerCard 3</h3>
+                </div>
+                <div class="card">
+                    <h3 id="dealerCard4">dealerCard 4</h3>
+                </div>
+                <div class="card">
+                    <h3 id="dealerCard5">dealerCard 5</h3>
+                </div>
+                <div class="Money">
+                    <h3 id="dealerMoney">₹ 500</h3>
+                </div>
+            </div>
+            <div class="score">
+                <h2>2</h2>
+            </div>
+        </div>
+        <div class="betting">
+            <input type="number" name="betRs" id="betRs" value="5">
+            <button class="btn" onclick="clickCard()">DEAL ₹</button>
+        </div>
+            <div class="playerSection">
+                <h1>Player</h1>
+                <div class="Cards">
+                    <div class="card">
+                        <h3 id="playerCard1">PlayerCard 1</h3>
+                    </div>
+                    <div class="card">
+                        <h3 id="playerCard2">PlayerCard 2</h3>
+                    </div>
+                    <div class="card">
+                        <h3 id="playerCard3">PlayerCard 3</h3>
+                    </div>
+                    <div class="card">
+                        <h3 id="playerCard4">PlayerCard 4</h3>
+                    </div>
+                    <div class="card">
+                        <h3 id="playerCard5">PlayerCard 5</h3>
+                    </div>
+                    <div class="Money">
+                        <h3 id="playerMoney">₹ 1500</h3>
+                    </div>
+                </div>
+                <div class="score">
+                    <h2>5</h2>
+                </div>
+            </div>
+            <div class="result">
+                <h2 id="resultMsg">Result Message</h2>
+            </div>
+        </div>       
+        <div class="btnArea">
+            <button class="btn btnRounded">HIT</button>
+            <button class="btn btnRounded">STAND</button>
+            <button class="btn btnRounded">New Game</button>
+        </div>
+    </div>
+
+    <script src="./script.js"></script>
+    <script src="./cards52.js"></script>
+</body>
+
+</html>

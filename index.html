@@ -158,6 +158,159 @@
               <li>Vikram</li>
               <li>Vishal</li>
             </ol>
+           
+            <ul>
+
+            
+            <li> <p class="text-success">Release 0 :
+              Analyse, Assign and Break</p>
+              <ol>
+                <li>front-end (User interface) : Assigned to Mr. Vishal / Mr. Anirudh</li>
+                <li>back-end (Logic part- script) : Assigned to Mr. Vikram </li>
+              </ol>
+            
+            </li>
+            <li style="margin-top:10px"> <p class="text-success">Release 1 :
+                Represent the card deck using data structures. Write a shuffle method that returns a deck of shuffled cards</p>
+              
+                <ol>
+                  <li>Represting card deck:
+                    <code>
+                      <p>
+                    var cards = [];  <br>
+                    var suits = ["spades", "hearts", "clubs", "diams"];<br>
+                    var numb = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];<br>
+                    var cardCount = 0;<br>
+                    // pushing cards in Cards[] array<br>
+                    for (s in suits) {  <br>
+                      var suit = suits[s][0].toUpperCase();<br>
+                      var bgcolor = suit == "S" || suit == "C" ? "black" : "red";<br>
+                      for (n in numb) {<br>
+                        //output.innerHTML += "<span style='color:" + bgcolor + "'>&" + suits[s] + ";" + numb[n] + "</span> ";
+                        var cardValue = n > 9 ? 10 : parseInt(n) + 1;<br>
+                        //var cardValue = 1; <br>
+                        var card = { <br>
+                          suit: suit,<br>
+                          icon: suits[s],<br>
+                          bgcolor: bgcolor,<br>
+                          cardnum: numb[n],<br>
+                          cardvalue: cardValue,<br>
+                        };<br>
+                        cards.push(card);<br>
+                      }<br>
+                    }<br>
+                  </p>
+                  </code>  
+                  </li>
+                  <li>Shuffling the card deck:
+                    <code>
+                      <p>
+                        shuffleDeck(cards);  // passing array as parameter<br>
+
+                        // shuffle card deck function<br>
+
+                        function shuffleDeck(array) {<br>
+                          for (var i = array.length - 1; i > 0; i--) {<br>
+                            var j = Math.floor(Math.random() * (i + 1));<br>
+                            var temp = array[i];<br>
+                            array[i] = array[j];<br>
+                            array[j] = temp;<br>
+                          }<br>
+                          return array;<br>
+                        }<br>
+                      </p>
+                    </code>
+                  
+                  </li>
+                </ol>
+
+              </li>
+                 
+            <li style="margin-top:10px"> <p class="text-success">Release 2 :
+              Write the logic necessary to get the game to start. You need to take a number of players as input and deal cards accordingly. Don't forget the dealer!</p>
+            
+              <ol>
+                <li>Fixed 1 player with Dealer</li>
+                <li>Initially, Assigned Rs.500 in Player wallet to start game.</li>
+                <li>Player need to pass valid amount to start game as betting amount.</li>
+                <li>showing alert if betting amount is not valid.</li>
+                <li>Shows Dealer and Player hand 's card value and button for stand,hit and double betting amount.</li>
+              </ol>
+            
+            </li>
+            
+   
+           <li style="margin-top:10px"> <p class="text-success">Release 3 :
+            Write the logic for betting. Also, write the function that checks who has won the game and accordingly increases or decreases chips</p>
+          
+            <ol>
+              <li>function to check who has won the game : 
+               <code>
+                <br>
+                //WHo won???<br>
+                var playervalue = checktotal(playerCard);<br>
+                if (playervalue == 21 && playerCard.length == 2) {<br>
+                  play_audio_win();<br>
+                  message.innerHTML = "Player Blackjack 💥😎🤑😉🎉✨🎁";<br>
+                  payoutJack = 1.5;<br>
+                  playend();<br>
+                }<br>
+              
+                var betvalue =<br>
+                  parseInt(document.getElementById("betAmount").value) * payoutJack;<br>
+                if (<br>
+                  (playervalue < 22 && dealervalue < playervalue) ||<br>
+                  (dealervalue > 21 && playervalue < 22) <br>
+                ) {
+                  play_audio_win();<br>
+                  message.innerHTML +=<br>
+                    '<span style="color:green;">You WIN! 💥🤑🎁 You won <strong>₹ ' +<br>
+                    betvalue +<br>
+                    "</strong></span>";<br>
+                  localStorage.wallatbal = parseInt(localStorage.wallatbal) + betvalue * 2;<br>
+                }<br> 
+                else if (playervalue > 21) {<br>
+                  game_tie_audio();<br>
+                  message.innerHTML +=<br>
+                    '<span style="color:red;">Dealer Wins! You lost <strong>₹ ' +<br>
+                    betvalue +<br>
+                    " 🤯💔</strong></span>";<br>
+                } else if (playervalue == dealervalue) {<br>
+                  ame_tie_audio();<br>
+                  message.innerHTML += '<span style="color:blue;">Game Tie ✨🎉</span>';<br>
+                  localStorage.wallatbal = parseInt(localStorage.wallatbal) + betvalue;<br>
+                } else {<br>
+                  game_tie_audio();<br>
+                  message.innerHTML +=<br>
+                    '<span style="color:red;">Dealer Wins! You lost <strong>₹ ' +<br>
+                    betvalue +<br>
+                    " 🤯🤯💔</strong></span>";<br>
+                }<br>
+                playerValue.innerHTML = playervalue; <br>
+                myWalletbal5.innerHTML = localStorage.wallatbal; <br>
+
+               </code>
+              </li>
+              <li>Button appear for redeal the gsme with same betting amount or reset the game.</li>
+             
+            </ol>
+
+          </li>
+            
+            <li style="margin-top:10px"> <p class="text-success">Release 4 :
+            Create an interactive GUI which lets a user play BlackJack. Make your Milestone live</p>
+          
+             <a style="font-size: 12px;" href="https://vikramrai-mumbai.github.io/BlackJack/index.html" target="_blank">Github Page Link  :  https://vikramrai-mumbai.github.io/BlackJack/index.html</a>
+          
+          </li>
+            
+            <li style="margin-top:10px"> <p class="text-success">Release 5 :
+            Write tests for your game. Test each and every functionality and integrate this on your Github Repo</p>
+              
+            <p> unit/integration test case using jest testing framework : under development</p>
+          
+          </li>
+          </ul>
           </div>
         </div>
       </div>

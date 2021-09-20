@@ -24,6 +24,3 @@ Pick one card game(Solitaire, Hearts, Rummy, Cheat, BlackJack, Mahjong etc) that
 
 ## Guide
 [Click here to watch milestone guide](https://drive.google.com/open?id=1WxYQGMQIn9vhPenRMF0t0wQUl1jdeAgC)
-
-## GitHub Page Link : 
-https://vikramrai-mumbai.github.io/BlackJack/index.html

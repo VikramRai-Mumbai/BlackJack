@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monoceros :: BlackJack Card Game (Vikram Kumar) </title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="assets/css/style.css" rel="stylesheet">
+</head>
+<body>
+
+   <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+              <span class="icon-bar"></span> 
+              <span class="icon-bar"></span> 
+              <span class="icon-bar"></span>                     
+            </button>
+            <a class="navbar-brand" href="http://soal.jamamo.in/HD2101/MS4/">Monoceros : BlackJack Card Game</a>
+          </div>
+          <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="http://soal.jamamo.in">Home</a></li>
+              <li class=""><a onclick="ResetLocalStorage()">Reset Game</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a class="" data-toggle="modal" data-target="#details"><span class="glyphicon glyphicon-info-sign"></span> Game Details</a></li>
+
+            </ul>
+          </div>
+        </div>
+      </nav>
+   
+<!---------------------------------------------------------------------------------------------------->
+
+<div class="w3-container">
+   <button  class="WalletBtn btn btn-primary">Wallat Bal: <i class=" fa fa-rupee"></i> <span id="myWalletbal5">500</span></button>
+   <br>
+  </div>
+  
+  <div id="inputDiv" class=" w3-row">
+  <div class="w3-container">
+         
+    <div style="width:300px;margin: 0 auto;" class="betAmtDiv w3-container w3-center w3-card-4 w3-light-grey w3-text-blue">
+      <h4 class="w3-center">Betting Amount</h4>
+    
+        <div class="w3-col" style="width:30px"><i class="w3-xxlarge fa fa-rupee"></i></div>
+          <div class="w3-rest">
+            <input style="width:200px" class="w3-input w3-border" name="betAmount" id="betAmount" type="text" placeholder="Minimum Rs.100">
+          </div>
+      
+  
+      
+      <button onclick="startGame()" class="w3-button w3-block w3-section w3-blue w3-ripple w3-padding" style="width:50%;margin: 0 auto;">Start Game</button>
+      
+    </div>
+
+
+  </div>
+ 
+  </div>
+
+
+
+
+
+  <div id="cardDiv" style="display:none;" class=" w3-row">
+    <div class="w3-third w3-container w3-sand">
+      <h5 class="w3-center w3-text-blue">Bet Amount</h5>
+
+      <button type="button" style="width:200px"  class="thisGameBetAmount btn btn-primary">
+        Betting amount:  <i class=" fa fa-rupee"></i> <span id="betAmount2" class="badge badge-light">NA</span>
+      </button>
+      
+       <br><br>
+       <p id="message" class="w3-text-green">Get up to 21 and beat the dealer to win.</p>
+    </div>
+    <div class="w3-third w3-container ">
+      <h5 class="w3-center w3-text-blue">Dealer Hand : <span id="dealerValue"></span></h5>
+      <div id="dealerHolder"></div>
+
+    </div>
+    <div class="w3-third w3-container ">
+      <h5 class="w3-center w3-text-blue">Player Hand : <span id="playerValue"></span></h5>
+      <div id="playerHolder"></div>
+    </div>
+    </div>
+   <div style="display: none;margin-top:25px" id="btnDiv" class="w3-center">
+    <button onclick="cardAction('hold')" class="btn btn-success">Hold</button>     <button onclick="cardAction('hit')" class="btn btn-primary">Hit</button> <button  onclick="cardAction('double')" class="btn btn-danger">Double</button>
+  </div>
+
+  <div style="display: none;margin-top:25px" id="btnResetDiv" class="w3-center">
+    <button onclick="startGame()" class="btn btn-primary">Re-Deal</button> <button onclick="gameReset()" class="btn btn-success">Reset</button>
+  </div>
+
+<!----------------------------------------------------------------------------------------------------->
+    <script src="assets/js/script.js"></script>
+
+
+    <!-- Modal for Game Details-->
+<div class="modal fade" id="details" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-md" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Game Details</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+ 
+  <div class="list-group">
+    <a href="#" class="list-group-item list-group-item-action active">
+        RULES FOR BLACKJACK CARD GAME
+    </a>
+    <a href="#" class="list-group-item list-group-item-action">1. This is card game (BlackJack) based on standard 52-card pack</a>
+    <a href="#" class="list-group-item list-group-item-action">2. Each participant attempts to beat the dealer by getting a count as close to 21 as possible, without going over 21.</a>
+    <a href="#" class="list-group-item list-group-item-action">3. It is up to each individual player if an ace is worth 1 or 11. Face cards are 10 and any other card is its pip value.</a>
+    <a href="#" class="list-group-item list-group-item-action">4. Before the deal begins, each player places a bet, in chips, in front of them in the designated area.</a>
+    <a href="#" class="list-group-item list-group-item-action">5. Minimum and maximum limits are established on the betting, and the general limits are from $2 to $500.</a>
+  </div>
+  <center><img style="max-width: 80%;max-height: 175px;height: auto;" class="img-fluid" src="assets/images/details.png" alt="about us"></center>
+
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</body>
+</html>
